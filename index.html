@@ -5,6 +5,40 @@
     <link rel="stylesheet" href="main.css">
     <title>Title</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+    let tg = window.Telegram.WebApp;
+    let form = document.getElementById('form');
+    tg.expand();
+
+    form.addEventListener('click', () => {
+        // document.getElementById("error").innerText = '';
+        let ip = document.getElementById("ip").value;
+        let mac = document.getElementById("mac").value;
+        let name = document.getElementById("name").value;
+        let zabbix = document.getElementById("zabbix").value;
+        let tags = document.getElementById("tags").value;
+
+        if(name.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка в имени';
+          return;
+        }
+        if(mac.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка mac';
+          return;
+        }
+        if(ip.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка ip';
+          return;
+        }
+
+        let data = {
+          name: name,
+          ip: ip
+        }
+        tg.sendData(JSON.stringify(data));
+        tg.close();
+    });
+  </script>
 </head>
 <body>
 <!--<form action='' class='form'>-->
@@ -65,7 +99,9 @@
     <h1>v1</h1>
   <input type = 'text' placeholder="name" id ='name'>
   <input type = 'text' placeholder="ip" id ='ip'>
-  <button id = 'button'>Окей</button>
+  <button id = 'button' onclick="">Окей</button>
+    <button id = 'button1' onclick="tg.sendData(JSON.stringify(data))">Окей1</button>
+
   <div id ="error"></div>
 </form>
 <!--    </ul>-->
@@ -73,39 +109,6 @@
 <!--&lt;!&ndash;  <p class='field half'>&ndash;&gt;-->
 <!--&lt;!&ndash;    <input class='button' type='submit' value='Отправить'>&ndash;&gt;-->
 <!--&lt;!&ndash;  </p>&ndash;&gt;-->
-  <script>
-    let tg = window.Telegram.WebApp;
-    let form = document.getElementById('form');
-    tg.expand();
 
-    form.addEventListener('click', () => {
-        // document.getElementById("error").innerText = '';
-        let ip = document.getElementById("ip").value;
-        let mac = document.getElementById("mac").value;
-        let name = document.getElementById("name").value;
-        let zabbix = document.getElementById("zabbix").value;
-        let tags = document.getElementById("tags").value;
-
-        if(name.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка в имени';
-          return;
-        }
-        if(mac.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка mac';
-          return;
-        }
-        if(ip.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка ip';
-          return;
-        }
-
-        let data = {
-          name: name,
-          ip: ip
-        }
-        tg.sendData(JSON.stringify(data));
-        tg.close();
-    });
-  </script>
 </body>
 </html>
