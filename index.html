@@ -1,198 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Start Page</title>
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="MobileOptimized" content="176"/>
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="robots" content="noindex,nofollow"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <title>Title</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!--suppress CssUnresolvedCustomProperty -->
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            color: var(--tg-theme-text-color, #222222);
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            color-scheme: var(--tg-color-scheme);
-        }
-
-        a {
-            color: var(--tg-theme-link-color, #2678b6);
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            font-size: 14px;
-            margin: 15px 0;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: var(--tg-theme-button-color, #50a8eb);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            cursor: pointer;
-        }
-
-        button[disabled] {
-            opacity: 0.6;
-            cursor: auto;
-            pointer-events: none;
-        }
-
-        section {
-            padding: 15px 15px 65px;
-            text-align: center;
-        }
-
-        p {
-            margin: 40px 0 15px;
-        }
-
-        ul {
-            text-align: left;
-        }
-
-        li {
-            color: var(--tg-theme-hint-color, #a8a8a8);
-        }
-
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 7px;
-        }
-
-        pre {
-            background: rgba(0, 0, 0, .07);
-            border-radius: 4px;
-            padding: 4px;
-            margin: 7px 0;
-            word-break: break-word;
-            white-space: pre-wrap;
-            text-align: left;
-        }
-
-        .dark pre {
-            background: rgba(255, 255, 255, .15);
-        }
-
-        .ok {
-            color: green;
-        }
-
-        .err {
-            color: red;
-        }
-
-        input[type=text] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
 <body>
-<section>
-    <button type="button" onclick="checkMyData();">Check My Data</button>
+<!--<form action='' class='form'>-->
+<!--  <p class='field half'>-->
+<!--    <label class='label' for='select'>Выберете Zywall</label>-->
+<!--    <select class='select' id='select'>-->
+<!--      <option selected value=''>IP адрес</option>-->
+<!--      <option value='kot'>Котельники - 192.168.200.1</option>-->
+<!--      <option value='gol'>Гольяново - 192.168.20.1</option>-->
+<!--      <option value='rostov'>Ростов-на-Дону 192.168.10.1</option>-->
+<!--      <option value='spb'>Санкт-Петербург - 192.168.40.1</option>-->
+<!--      <option value='vor'>Воронеж - 192.168.30.1</option>-->
+<!--      <option value='kaz'>Казань - 192.168.90.1</option>-->
+<!--      <option value='yar'>Ярославль - 192.168.120.1</option>-->
+<!--    </select>-->
+<!--  </p>-->
+<!--  <p class='field half'>-->
+<!--    <label class='label' for='text'>Mac-Адрес:</label>-->
+<!--    <input class='text-input' id='text' name='text' required type='text'>-->
+<!--  </p>-->
+<!--  <p class='field half'>-->
+<!--    <label class='label' for='text'>Имя устройства:</label>-->
+<!--    <input class='text-input' id='name' name='text' required type='text'>-->
+<!--  </p>-->
+<!--  <div class='field'>-->
+<!--    <label class='label'>Добавить в Zabbix?</label>-->
+<!--    <ul class='options'>-->
+<!--      <li class='option'>-->
+<!--        <input class='option-input' id='option-0' name='option' type='radio' value='0'>-->
+<!--        <label class='option-label' for='option-0'>Да</label>-->
+<!--      </li>-->
+<!--      <li class='option'>-->
+<!--        <input class='option-input' id='option-1' name='option' type='radio' value='1'>-->
+<!--        <label class='option-label' for='option-1'>Нет</label>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--  <div class='field'>-->
+<!--    <label class='label'>Теги для Zabbix</label>-->
+<!--    <ul class='checkboxes'>-->
+<!--      <li class='checkbox'>-->
+<!--        <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1'>-->
+<!--        <label class='checkbox-label' for='choice-1'>Камера</label>-->
+<!--      </li>-->
+<!--      <li class='checkbox'>-->
+<!--        <input class='checkbox-input' id='choice-2' name='choice' type='checkbox' value='2'>-->
+<!--        <label class='checkbox-label' for='choice-2'>Точка</label>-->
+<!--      </li>-->
+<!--      <li class='checkbox'>-->
+<!--        <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3'>-->
+<!--        <label class='checkbox-label' for='choice-3'>ВР</label>-->
+<!--      </li>-->
+<!--      <li class='checkbox'>-->
+<!--        <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='3'>-->
+<!--        <label class='checkbox-label' for='choice-4'>Свитч</label>-->
+<!--      </li>-->
+<form id ='form'>
+  <input type = 'text' placeholder="Имя" id ='name'>
+  <input type = 'text' placeholder="IP" id ='ip'>
+  <button id = 'button'>Окей</button>
+  <div id = 'error'></div>
+</form>
+<!--    </ul>-->
+<!--  </div>-->
+<!--&lt;!&ndash;  <p class='field half'>&ndash;&gt;-->
+<!--&lt;!&ndash;    <input class='button' type='submit' value='Отправить'>&ndash;&gt;-->
+<!--&lt;!&ndash;  </p>&ndash;&gt;-->
+  <script>
+    let tg = window.Telegram.WebApp;
+    let form = document.getElementById('form');
+    let button = document.getElementById('button');
+    tg.expand()
 
-    <hr>
+    button.addEventListener('click', () => {
+        document.getElementById("error").innerText = '';
+        let ip = document.getElementById("ip").value;
+        let mac = document.getElementById("mac").value;
+        let name = document.getElementById("name").value;
+        let zabbix = document.getElementById("zabbix").value;
+        let tags = document.getElementById("tags").value;
+        if(name, length < 5) {
+          document.getElementById("error").innerText = 'Ошибка в имени';
+          return;
+        }
+        if(mac, length < 5) {
+          document.getElementById("error").innerText = 'Ошибка mac';
+          return;
+        }
+        if(ip, length < 5) {
+          document.getElementById("error").innerText = 'Ошибка ip';
+          return;
+        }
+        tg.close()
 
-    <h3>Send Message Function</h3>
-    <form>
-        <label for="input-user-id"></label>
-        <input id="input-user-id" type="text" placeholder="UserID">
-
-        <label for="input-text"></label>
-        <input id="input-text" type="text" placeholder="Text">
-
-        <button type="button" onclick="setMyUserID();">Set my ID</button>
-        <button type="button" onclick="sendMessage();">Send Message</button>
-    </form>
-
-    <hr>
-
-    <h4>Output</h4>
-    <pre><code id="div-code-output"></code></pre>
-</section>
-
-
-<!--suppress JSUnresolvedFunction, JSUnresolvedVariable, JSUnusedLocalSymbols -->
-<script>
-    Telegram.WebApp.ready();
-
-    let initData = Telegram.WebApp.initData || '';
-    let initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-
-    function checkMyData() {
-        $('button').prop('disabled', true);
-
-        $.ajax('/checkUserData', {
-            method: 'POST',
-            data: {
-                _auth: initData,
-            },
-            dataType: 'json',
-            success: function (result) {
-                $('button').prop('disabled', false);
-
-                if (result.ok) {
-                    $('#div-code-output').text('Your Hash is valid. So all is OK 😉').removeClass('err').addClass('ok').show();
-                } else {
-                    $('#div-code-output').text('😥 Hash is not ok: ' + result.error).removeClass('ok').addClass('err').show();
-                }
-            },
-            error: function (xhr) {
-                $('button').prop('disabled', false);
-                $('#div-code-output').text('Server error').removeClass('ok').addClass('err').show();
-            }
-        });
-    }
-
-    function sendMessage() {
-        $('button').prop('disabled', true);
-        let user_id = $('#input-user-id').prop('value');
-        let text = $('#input-text').prop('value');
-
-        $.ajax('/sendMessage', {
-            method: 'POST',
-            data: {
-                _auth: initData,
-                user_id: user_id,
-                text: text
-            },
-            dataType: 'json',
-            success: function (result) {
-                $('button').prop('disabled', false);
-
-                if (result.ok) {
-                    $('#div-code-output').text('Sent message to ' + user_id).removeClass('err').addClass('ok').show();
-                } else {
-                    $('#div-code-output').text(result.error).removeClass('ok').addClass('err').show();
-                }
-            },
-            error: function (xhr) {
-                $('button').prop('disabled', false);
-                $('#div-code-output').text('Server error').removeClass('ok').addClass('err').show();
-            }
-        });
-    }
-
-    function setMyUserID() {
-        $('#input-user-id').prop('value', initDataUnsafe.user.id);
-        $('#div-code-output').text('Your ID has been pasted').removeClass('err').addClass('ok').show();
-    }
-
-    Telegram.WebApp.MainButton.setText('CLOSE').show().onClick(function () {
-        Telegram.WebApp.close();
+        let data = {
+          name: name,
+          ip: ip
+        }
+        tg.sendData(JSON.stringify(data))
     });
-
-</script>
+  </script>
 </body>
+</html>
