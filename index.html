@@ -97,13 +97,13 @@
           document.getElementById("error").innerText = 'Ошибка ip';
           return;
         }
-        tg.close()
 
         let data = {
           name: name,
           ip: ip
         }
-        tg.sendData(JSON.stringify(data))
+        tg.sendData(JSON.stringify(data));
+        tg.close();
     });
   </script>
 </body>
