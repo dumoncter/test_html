@@ -62,10 +62,11 @@
 <!--        <label class='checkbox-label' for='choice-4'>Свитч</label>-->
 <!--      </li>-->
 <form id ='form'>
-  <input type = 'text' placeholder="Имя" id ='name'>
-  <input type = 'text' placeholder="IP" id ='ip'>
+    <h1>v1</h1>
+  <input type = 'text' placeholder="name" id ='name'>
+  <input type = 'text' placeholder="ip" id ='ip'>
   <button id = 'button'>Окей</button>
-  <div id = 'error'></div>
+  <div id ="error"></div>
 </form>
 <!--    </ul>-->
 <!--  </div>-->
@@ -75,25 +76,25 @@
   <script>
     let tg = window.Telegram.WebApp;
     let form = document.getElementById('form');
-    let button = document.getElementById('button');
-    tg.expand()
+    tg.expand();
 
-    button.addEventListener('click', () => {
-        document.getElementById("error").innerText = '';
+    form.addEventListener('click', () => {
+        // document.getElementById("error").innerText = '';
         let ip = document.getElementById("ip").value;
         let mac = document.getElementById("mac").value;
         let name = document.getElementById("name").value;
         let zabbix = document.getElementById("zabbix").value;
         let tags = document.getElementById("tags").value;
-        if(name, length < 5) {
+
+        if(name.length < 5) {
           document.getElementById("error").innerText = 'Ошибка в имени';
           return;
         }
-        if(mac, length < 5) {
+        if(mac.length < 5) {
           document.getElementById("error").innerText = 'Ошибка mac';
           return;
         }
-        if(ip, length < 5) {
+        if(ip.length < 5) {
           document.getElementById("error").innerText = 'Ошибка ip';
           return;
         }
