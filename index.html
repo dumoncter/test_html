@@ -4,41 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
     <title>Title</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-    let tg = window.Telegram.WebApp;
-    let form = document.getElementById('form');
-    tg.expand();
-
-    form.addEventListener('click', () => {
-        // document.getElementById("error").innerText = '';
-        let ip = document.getElementById("ip").value;
-        let mac = document.getElementById("mac").value;
-        let name = document.getElementById("name").value;
-        let zabbix = document.getElementById("zabbix").value;
-        let tags = document.getElementById("tags").value;
-
-        if(name.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка в имени';
-          return;
-        }
-        if(mac.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка mac';
-          return;
-        }
-        if(ip.length < 5) {
-          document.getElementById("error").innerText = 'Ошибка ip';
-          return;
-        }
-
-        let data = {
-          name: name,
-          ip: ip
-        }
-        tg.sendData(JSON.stringify(data));
-        tg.close();
-    });
-  </script>
 </head>
 <body>
 <!--<form action='' class='form'>-->
@@ -95,15 +60,74 @@
 <!--        <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='3'>-->
 <!--        <label class='checkbox-label' for='choice-4'>Свитч</label>-->
 <!--      </li>-->
+
 <form id ='form'>
     <h1>v1</h1>
-  <input type = 'text' placeholder="name" id ='name'>
-  <input type = 'text' placeholder="ip" id ='ip'>
-  <button id = 'button' onclick="">Окей</button>
+    <input type = 'text' placeholder="name" id='name'>
+    <input type = 'text' placeholder="ip" id='ip'>
+    <button id = 'button' onclick="">Окей</button>
     <button id = 'button1' onclick="tg.sendData(JSON.stringify(data))">Окей1</button>
-
-  <div id ="error"></div>
+    <div id ="error"></div>
 </form>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    let tg = window.Telegram.WebApp;
+    let form = document.getElementById('form');
+    tg.expand();
+</script>
+<script>
+    form.addEventListener('click', function() {
+        // document.getElementById("error").innerText = '';
+        let ip = document.getElementById("ip").value;
+        let mac = document.getElementById("mac").value;
+        let name = document.getElementById("name").value;
+
+        if(name.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка в имени';
+          return;
+        }
+        if(mac.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка mac';
+          return;
+        }
+        if(ip.length < 5) {
+          document.getElementById("error").innerText = 'Ошибка ip';
+          return;
+        }
+
+        let data = {
+          name: name,
+          ip: ip
+        }
+        tg.sendData(JSON.stringify(data));
+        tg.close();
+    });
+</script>
+ <button class="myChoice">JavaScript</button>
+    <button class="myChoice">Python</button>
+
+    <script>
+        const choice = document.querySelectorAll('.myChoice');
+
+        choice.forEach(choiceItem => {
+            choiceItem.addEventListener('click', () => answer(choiceItem.innerHTML));
+        })
+
+        function answer(text) {
+            if (text === 'JavaScript') {
+                document.getElementById("error").innerText = 'Ошибка ip';
+            } else {
+                alert('Возможно вы ошиблись?');
+            }
+        }
+    </script>
+<form name="contact_form" method="post" action="dumb.htm" onsubmit="return validate_form ( );">
+<h1>Пожалуйста введите Ваше имя.</h1>
+<p>Ваше имя: <input type="text" name="contact_name"></p>
+<input type="submit" name="send" value="Отправить данные"></p>
+</form>
+
+
 <!--    </ul>-->
 <!--  </div>-->
 <!--&lt;!&ndash;  <p class='field half'>&ndash;&gt;-->
