@@ -48,7 +48,7 @@ btn1.addEventListener('click', (e) => {
     api_block.style.display = 'block';
 
 
-fetch('http://83.242.237.130:35800/api/v1/telegram_web/find_mac/', {
+fetch('https://83.242.237.130:35800/api/v1/telegram_web/find_mac/', {
   method: 'POST',
   mode: 'cors',
   body: JSON.stringify({
