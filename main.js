@@ -5,7 +5,7 @@ let btn2 = document.getElementById('button_zabbix');
 let count_info = 0;
 
 // get api with insert option
-fetch('https://expo-torg.ddns.me:45100/api/v1/telegram_web/ip/')
+fetch('https://expo-torg.ddns.me:35800/api/v1/telegram_web/ip/')
     .then(res => {
         console.log(res)
         return res.json();
@@ -62,7 +62,7 @@ btn1.addEventListener('click', (e) => {
     api_block.style.display = 'block';
 
 
-fetch('https://expo-torg.ddns.me:45100/api/v1/telegram_web/find_mac/', {
+fetch('https://expo-torg.ddns.me:35800/api/v1/telegram_web/find_mac/', {
   method: 'POST',
   mode: 'cors',
   body: JSON.stringify({
