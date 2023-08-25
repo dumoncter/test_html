@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
-    <title>Title</title>
+    <title>Expo-Torg IT</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 </head>
 <body>
 <form class='form' id ='form' onsubmit="onSubmit(event)">
@@ -30,68 +30,44 @@
 <form class="find_mac" id="find_mac_api">
   <div class="ring" id = 'ring'>Loading<span></span> </div>
   <div class="error" id = 'error_ring'></div>
+  <div class="wrap">
+    <button class="button" id="button_error" type="submit" style="display: none">&#10006; На главную &#10006;</button>
+  </div>
   <label class='label'>
     <select class='select_api' id='select_api'></select>
    </label>
 </form>
 <form class="zabbix" id="zabbix.add">
-    <div class='field'>
-    <label class='label' >Добавить в Zabbix?</label>
-    <ul class='options' id="add_zabbix">
-      <li class='option'>
-        <input class='option-input' id='option-0' name='option' type='radio' value='0' required>
-        <label class='option-label' for='option-0'>Да</label>
-      </li>
-      <li class='option'>
-        <input class='option-input' id='option-1' name='option' type='radio' value='1' required>
-        <label class='option-label' for='option-1'>Нет</label>
-      </li>
-    </ul>
-  </div>
+   <div class='field'>
+      <label class='label' >Добавить в Zabbix?</label>
+   </div>
+  <ul class="ks-cboxtags-yes-no">
+    <li><input type="checkbox" id="YES" value="Камера" checked><label for="YES">&nbsp;&nbsp; &#10004; Да &nbsp;&nbsp;</label></li>
+    <li><input type="checkbox" id="NO" value="Точка"><label for="NO">&nbsp;&nbsp; &#10006; Нет &nbsp;&nbsp;</label></li>
+  </ul>
   <div id ="error_zabbix_bool"></div>
   <p class='field half'>
-    <label class='label'>Имя устройства:</label>
-    <input class='text-input' id='name'>
+    <label class='label' id="zabbix_name">Имя устройства:</label>
+    <input class='text-input' id='zabbix_name_input'>
   </p>
   <div id ="error_name"></div>
-  <label class='label' style="margin: 0 auto;">Теги для Zabbix:</label>
-  <div class="container">
+  <label class='label' id="zabbix_tags_text" style="margin: 0 auto; width: 300px;">Теги для Zabbix:</label>
+  <div class="container" id="zabbix_tags">
   <ul class="ks-cboxtags">
-    <li><input type="checkbox" id="checkboxOne" value="Камера"><label for="checkboxOne">Камера</label></li>
-    <li><input type="checkbox" id="checkboxTwo" value="Точка"><label for="checkboxTwo">Точка</label></li>
-    <li><input type="checkbox" id="checkboxThree" value="ВР"><label for="checkboxThree">ВР</label></li>
-    <li><input type="checkbox" id="checkbox4" value="ВР"><label for="checkbox4">Свитч</label></li>
-    <li><input type="checkbox" id="checkbox5" value="Станок"><label for="checkbox5">Станок</label></li>
+    <li><input type="checkbox" id="check_cam" value="Камера"><label for="check_cam">Камера</label></li>
+    <li><input type="checkbox" id="check_wifi" value="Точка"><label for="check_wifi">Точка</label></li>
+    <li><input type="checkbox" id="check_switch" value="Свитч"><label for="check_switch">Свитч</label></li>
+    <li><input type="checkbox" id="check_vr" value="ВР"><label for="check_vr">ВР</label></li>
+    <li><input type="checkbox" id="check_stan" value="Станок"><label for="check_stan">Станок</label></li>
+    <li><input type="checkbox" id="check_zkt" value="zkt"><label for="check_zkt">ZKT</label></li>
   </ul>
   </div>
-<!--  <div class='field' id="tags_zabbix">-->
-<!--    <label class='label'>Теги для Zabbix:</label>-->
-<!--    <ul class='checkboxes'>-->
-<!--      <li class='checkbox'>-->
-<!--        <input class='checkbox-input' id='choice-1' name='choice' type='checkbox' value='1'>-->
-<!--        <label class='checkbox-label' for='choice-1'>Камера</label>-->
-<!--      </li>-->
-<!--      <li class='checkbox'>-->
-<!--        <input class='checkbox-input' id='choice-2' name='choice' type='checkbox' value='2'>-->
-<!--        <label class='checkbox-label' for='choice-2'>Точка</label>-->
-<!--      </li>-->
-<!--      <li class='checkbox'>-->
-<!--        <input class='checkbox-input' id='choice-3' name='choice' type='checkbox' value='3'>-->
-<!--        <label class='checkbox-label' for='choice-3'>ВР</label>-->
-<!--      </li>-->
-<!--      <li class='checkbox'>-->
-<!--        <input class='checkbox-input' id='choice-4' name='choice' type='checkbox' value='3'>-->
-<!--        <label class='checkbox-label' for='choice-4'>Свитч</label>-->
-<!--      </li>-->
-<!--    </ul>-->
-<!--  </div>-->
   <div id ="error_zabbix_tags"></div>
   <div class="wrap">
-    <button class="button" id="button_zabbix" type="submit">Отправить</button>
+    <button class="button" id="button_zabbix" type="submit">Привязать</button>
   </div>
   <script src="main.js"></script>
   <script src="code.jquery.com_jquery-3.7.0.min.js"></script>
-  <script src="fetch_api.js"></script>
 </form>
 </body>
 </html>

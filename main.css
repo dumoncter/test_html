@@ -18,18 +18,40 @@ body {
     font-size: 1.25em;
   }
 }
+
 .container {
     max-width: 640px;
     font-size: 15px;
 }
 
-ul.ks-cboxtags {
+ul.ks-cboxtags, ul.ks-cboxtags-yes-no {
     list-style: none;
     padding: 20px;
+    margin: 0 auto;
+    text-align: left;
 }
-ul.ks-cboxtags li{
+
+ul.ks-cboxtags li, ul.ks-cboxtags-yes-no li{
   display: inline;
 }
+ul.ks-cboxtags-yes-no li label {
+    background-color: rgb(248, 18, 18);
+    border: 2px solid white;
+    color: #ffffff;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+    align-items: baseline;
+    font-weight: bold;
+}
+
 ul.ks-cboxtags li label{
     display: inline-flex;
     background-color: rgba(255, 255, 255, .9);
@@ -48,7 +70,7 @@ ul.ks-cboxtags li label{
     align-items: baseline;
 }
 
-ul.ks-cboxtags li label {
+ul.ks-cboxtags li label, ul.ks-cboxtags-yes-no li label {
     padding: 8px 12px;
     cursor: pointer;
 }
@@ -67,7 +89,7 @@ ul.ks-cboxtags li label::before {
     transition: transform .3s ease-in-out;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before{
     content: "\f00c";
     transform: rotate(-360deg);
     transition: transform .3s ease-in-out;
@@ -79,17 +101,23 @@ ul.ks-cboxtags li input[type="checkbox"]:checked + label {
     color: #fff;
     transition: all .2s;
 }
+/*YES/NO color*/
+ul.ks-cboxtags-yes-no li input[type="checkbox"]:checked + label {
+    border: 2px solid black;
+    background-color: #32b146;
+    color: #000;
+    transition: all .2s;
+}
 
-ul.ks-cboxtags li input[type="checkbox"] {
+ul.ks-cboxtags li input[type="checkbox"], ul.ks-cboxtags-yes-no li input[type="checkbox"] {
   position: absolute;
   opacity: 0;
 }
 
 
-
-
 .form .button, .form .message, .customSelect, .form .select, .form .textarea, .form .text-input, .form .option-input + label, .form .checkbox-input + label, .form .label,
-.zabbix .button, .zabbix .message, .customSelect, .zabbix .select, .zabbix .textarea, .zabbix .text-input, .zabbix .option-input + label, .zabbix .checkbox-input + label, .zabbix .label {
+.zabbix .button, .zabbix .message, .customSelect, .zabbix .select, .zabbix .textarea, .zabbix .text-input, .zabbix .option-input + label, .zabbix .checkbox-input + label, .zabbix .label
+    .button_error .button, .button_error .select, .button_error .textarea, .button_error .option-input + label, .button_error .label{
   padding: 0.75em 1em;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -158,9 +186,11 @@ ul.ks-cboxtags li input[type="checkbox"] {
   color: white;
   position: relative;
   border: 1px solid white;
+  border-radius: 10px;
 }
 .customSelect, .zabbix .select, .zabbix .textarea, .zabbix .text-input, .zabbix .checkbox-input + label {
   font: inherit;
+  border-radius: 10px;
   line-height: normal;
   width: 100%;
   box-sizing: border-box;
@@ -195,17 +225,18 @@ ul.ks-cboxtags li input[type="checkbox"] {
   color: white;
 }
 
-.form .button, .zabbix .button{
+.form .button, .zabbix .button, .button_error .button{
   font: inherit;
   line-height: normal;
   cursor: pointer;
   background: #E8474C;
   color: white;
   font-weight: bold;
-  width: auto;
   margin-left: auto;
   padding-left: 2em;
   padding-right: 2em;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .zabbix {
@@ -219,7 +250,6 @@ ul.ks-cboxtags li input[type="checkbox"] {
 }
 .zabbix .field {
   width: 100%;
-  margin: 0 0 1.5em 0;
 }
 .zabbix .field.last {
   margin-left: auto;
@@ -347,7 +377,7 @@ ul.ks-cboxtags li input[type="checkbox"] {
   font-weight: 700;
   color: #313133;
   background: #4FD1C5;
-background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+  background: linear-gradient(90deg, rgb(255 255 255) 0%, rgb(219 30 30) 100%);
   border: none;
   border-radius: 1000px;
   box-shadow: 12px 12px 24px rgba(255,103,45,.64);
@@ -471,6 +501,7 @@ span:before
   border: 1px solid white;
   padding: 0.75em 1em;
   margin-block-end: 10px;
+  border-radius: 10px;
 }
 
 .find_mac {
