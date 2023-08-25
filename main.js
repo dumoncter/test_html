@@ -18,7 +18,9 @@ fetch('https://expo-torg.ddns.me:35800/api/v1/telegram_web/ip/')
             document.querySelector('option').insertAdjacentHTML('afterend', markup)
         });
     })
-    .catch(e => console.error('EXCEPTION: ', e));
+    .catch(err => {
+      console.log(err);
+      })
 
 // listener first button
 btn1.addEventListener('click', (e) => {
